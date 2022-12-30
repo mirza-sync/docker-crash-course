@@ -11,3 +11,14 @@ app.get('/', async (req, res) => {
 app.listen(port, () => {
   console.log(`App is listening at port ${port}`);
 })
+
+const myPromise = new Promise((resolve, reject) => {
+  setTimeout(() => {
+    resolve('Good');
+  }, 300);
+  reject('Bad');
+});
+
+myPromise.then(() => {
+  console.log('This will never run');
+})
