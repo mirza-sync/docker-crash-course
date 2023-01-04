@@ -20,3 +20,13 @@ services:
       - "5432:5432"
     volumes:
       - ./database-seed.sql:/docker-entrypoint-initdb.d/database-seed.sql
+
+  pgadmin:
+    image: dpage/pgadmin4
+    environment:
+      - PGADMIN_DEFAULT_EMAIL=john@gmail.com
+      - PGADMIN_DEFAULT_PASSWORD=123456
+    ports:
+      - "16543:80"
+    depends_on:
+      - postgres
